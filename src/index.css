@@ -11,3 +11,51 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*---------------------------- CARDS ----------------------------------------*/
+.col .card{
+  height: 150px;
+  width: 100px;
+}
+
+.card.face-up{
+  transform: rotateY(360deg);
+  opacity: 1;
+  transition: transform 0.3s ease-out, opacity 0.3s 0.5s ease;
+}
+
+.card.face-down{
+  background-color: rgb(35, 87, 137);
+  transform: rotateY(180deg);
+  transition: transform 0.3s ease-out, opacity 0.3s 0.5s ease;
+}
+
+.face-down .card-body{
+  text-align: center;
+  line-height: 100px;
+  font-size: 60px;
+  font-weight: bold;
+  color: rgb(241, 211, 2);
+  transform: rotateY(180deg);
+}
+
+.card.face-down img{
+  display: none;
+}
+
+.card.face-up img{
+  display: block;
+}
+
+.card.face-up div{
+  display: none;
+
+}
+
+.card.face-down div{
+  display: block;
+}
+
+.card:hover{
+  scale: 1.1;
+}
