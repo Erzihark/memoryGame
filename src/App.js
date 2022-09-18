@@ -9,10 +9,10 @@ function App() {
     <>
         <div id='game'>
           <GameManager></GameManager>
-        </div>
+    </div>
     </>
   );
-  }
+}
 
 export default App;
 

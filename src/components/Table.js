@@ -17,7 +17,7 @@ export default function Table({arr, cardProps}){
                     return (
                         <Col align="center">
                             <MemCard 
-                                img={cardProps[val.toString()]["img"]} 
+                                img={cardProps[val.toString()]?.img} //if object is undefined, returns undefined
                                 id={val} 
                                 cardArr={cardArr} 
                                 pos={idx} 
@@ -33,7 +33,7 @@ export default function Table({arr, cardProps}){
                     return (
                         <Col align="center">
                             <MemCard 
-                                img={cardProps[val.toString()]["img"]} 
+                                img={cardProps[val.toString()]?.img} 
                                 id={val} 
                                 cardArr={cardArr} 
                                 pos={idx + (cardArr.length / 2)}
