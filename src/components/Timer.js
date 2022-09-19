@@ -47,7 +47,7 @@ export default function Timer({isTimerActive, seconds, setSeconds, setShowEndScr
         }
 
         return () => clearInterval(interval);
-    }, [isTimerActive, seconds])
+    }, [isTimerActive, seconds])// eslint-disable-line react-hooks/exhaustive-deps
 
     return(
         <>
