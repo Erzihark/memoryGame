@@ -15,7 +15,7 @@ bgMusic.volume = 0.03;
 
 export default function GameManager(){
   let initial = [];
-  const time = 2000;
+  const time = 30;
 
   const [seconds, setSeconds] = useState(time);
   const [isTimerActive, setIsTimerActive] = useState(true);
