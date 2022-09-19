@@ -1,41 +1,26 @@
-import { Offcanvas, Button } from "react-bootstrap"
-import {React, useState} from 'react'
+import { Offcanvas, Image } from "react-bootstrap";
+import "../index.css";
 
-export default function StartScreen(){
 
-    const [show, setShow] = useState(true);
+export default function StartScreen({toggleTimer, showStartScreen, setShowStartScreen}){
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+    const handleClose = () => {
+        setShowStartScreen(false);
+        toggleTimer();
+    };
 
     return(
         <>
-        <Offcanvas show={show} onHide={handleClose} placement="top">
-                <Offcanvas.Header>
-                    <Offcanvas.Title>
-                        Logo
-                    </Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                    Some text as placeholder. In real life you can have the elements you
-                    have chosen. Like, text, images, lists, etc.
-                </Offcanvas.Body>
-            </Offcanvas>
-
-        <Offcanvas show={show} onHide={handleClose} placement="bottom">
-            <Offcanvas.Header>
-                <Offcanvas.Title>
-                    Start
-                </Offcanvas.Title>
-            </Offcanvas.Header>
+        <Offcanvas show={showStartScreen} onHide={handleClose} placement="top">
             <Offcanvas.Body>
-                Some text as placeholder. In real life you can have the elements you
-                have chosen. Like, text, images, lists, etc.
+                <Image className="img-fluid mx-auto d-block" alt="..." src={"%PUBLIC_URL%/../images/logo.svg"}></Image>
             </Offcanvas.Body>
-            <Button variant="primary" onClick={handleClose} className="me-2">
-            Start
-            </Button>
+        </Offcanvas>
+
+        <Offcanvas show={showStartScreen} onHide={handleClose} placement="bottom">
+            <Offcanvas.Body>
+                <Image onClick={handleClose} className="start img-fluid mx-auto d-block" alt="..." src={"%PUBLIC_URL%/../images/start.png"}></Image>
+            </Offcanvas.Body>
         </Offcanvas>
         </>
     )

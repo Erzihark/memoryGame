@@ -12,10 +12,28 @@ code {
     monospace;
 }
 
+@font-face {
+  font-family: "mario-party";
+  src: url(./fonts/Mario-Party-Hudson-Font.ttf);
+}
+
 /*---------------------------- CARDS ----------------------------------------*/
-.col .card{
-  height: 150px;
-  width: 100px;
+.row .card-container{
+  margin-top: 2vw;
+}
+
+.card-container .memcard{
+  height: 15vw;
+  width: 66%;
+}
+
+.card-body div{
+  display: flex;
+}
+
+.memcard .card-img{
+  margin: auto;
+  width: 66%;
 }
 
 .card.face-up{
@@ -32,11 +50,18 @@ code {
 
 .face-down .card-body{
   text-align: center;
-  line-height: 100px;
-  font-size: 60px;
+  font-size: 15vw;
   font-weight: bold;
   color: rgb(241, 211, 2);
   transform: rotateY(180deg);
+}
+
+.card-mark{
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .card.face-down img{
@@ -53,9 +78,140 @@ code {
 }
 
 .card.face-down div{
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .card:hover{
   scale: 1.1;
+}
+
+@media screen and (max-width: 500px) {
+  .card-container .memcard{
+    height: 30vw;
+  }
+}
+
+@media screen and (min-width: 750px){
+  .face-down .card-body{
+    font-size: 9.3vw;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .face-down .card-body{
+    font-size: 7vw;
+  }
+  .row .card-container{
+    margin-top: 1vw;
+  }
+}
+
+
+/*---------------------------- START SCREEN  ----------------------------------------*/
+
+.offcanvas-backdrop + .offcanvas{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.offcanvas-body img:not(.start){
+  position: relative;
+  top: 10%;
+  max-height: 80%;
+  filter: invert(95%) sepia(78%) saturate(1018%) hue-rotate(356deg) brightness(104%) contrast(101%);
+}
+
+.offcanvas-body img{
+  position: relative;
+  top: 25%
+}
+
+.offcanvas-body .start{
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+
+.offcanvas-body .start:hover{
+  cursor: pointer;
+  animation-name: bounce;
+  -moz-animation-name: bounce;
+}
+
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		-ms-transform:     translateY(0);
+		transform:         translateY(0)
+	}
+	40% {
+		-webkit-transform: translateY(-25px);
+		-ms-transform:     translateY(-25px);
+		transform:         translateY(-25px)
+	}
+	60% {
+		-webkit-transform: translateY(-15px);
+		-ms-transform:     translateY(-15px);
+		transform:         translateY(-15px)
+	}
+}
+
+/*---------------------------- TIMER  ----------------------------------------*/
+.timer {
+  width: 50%;
+  margin: 1rem auto;
+  font-family: "mario-party";
+  font-size: 5vw;
+  text-align: center;
+  background: -webkit-linear-gradient(rgba(255,0,0,1), rgba(242,255,0,1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+/*---------------------------- TABLE ----------------------------------------*/
+.v-center{
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+/*---------------------------- END SCREEN  ----------------------------------------*/
+.end-txt{
+  font-family: "mario-party";
+  font-size: 6vw;
+  background: -webkit-linear-gradient(rgba(255,0,0,1), rgba(242,255,0,1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.modal-dialog .modal-content{
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*---------------------------- AUDIO ICONS  ----------------------------------------*/
+.audio{
+  background-color: rgba(255 255 255 / 50%);
+  border-radius: 1vw;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  width: 7vw;
+  filter: invert(95%) sepia(78%) saturate(1018%) hue-rotate(356deg) brightness(104%) contrast(101%);
+}
+
+/*---------------------------- MatchLabel ----------------------------------------*/
+.match-label{
+  z-index: 100;
+  position: fixed;
+  top:50%;
+  left: 50%;
+  margin-left: calc(var(--bs-toast-max-width)/2 * -1);
 }

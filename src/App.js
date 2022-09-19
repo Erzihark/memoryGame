@@ -7,9 +7,9 @@ function App() {
 
   return (
     <>
-        <div id='game'>
-          <GameManager></GameManager>
-    </div>
+      <div id='game'>
+        <GameManager></GameManager>
+      </div>
     </>
   );
 }
